@@ -1,6 +1,6 @@
 {
   "name": "bowser-cache",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Browser detection for node, with caching",
   "repository": "SimenB/bowser-cache",
   "author": "Simen Bekkhus <sbekkhus91@gmail.com>",
