@@ -1,0 +1,39 @@
+{
+  "name": "bowser-cache",
+  "version": "0.0.0",
+  "description": "Browser detection for node, with caching",
+  "repository": "SimenB/bowser-cache",
+  "author": "Simen Bekkhus <sbekkhus91@gmail.com>",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "precover": "del .nyc_output/ coverage/",
+    "cover": "nyc ava",
+    "postcover": "nyc check-coverage --lines 100 --functions 100 --branches 100 --stmts 100",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "ava",
+    "travis": "npm run lint && npm run cover",
+    "posttravis": "nyc report --reporter=lcov"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bowser": "^1.4.6",
+    "lru-cache": "^4.0.1"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "coveralls": "^2.11.14",
+    "del-cli": "^0.2.0",
+    "eslint": "^3.8.1",
+    "eslint-config-simenb-ava": "^5.0.3",
+    "eslint-config-simenb-base": "^7.0.1",
+    "eslint-config-simenb-node": "^0.3.1",
+    "nyc": "^8.3.2",
+    "sinon": "^1.17.6"
+  },
+  "engines": {
+    "node": ">=6"
+  }
+}
