@@ -1,7 +1,6 @@
 {
   "extends": [
     "simenb-base",
-    "simenb-node",
     "simenb-ava"
   ]
 }
