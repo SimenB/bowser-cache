@@ -1,5 +1,3 @@
-/* eslint import/no-extraneous-dependencies: ["error", { "devDependencies": true }] */
-
 import test from 'ava';
 import sinon from 'sinon';
 
