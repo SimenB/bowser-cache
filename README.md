@@ -37,6 +37,30 @@ const parsedInfo = bowserCache(ua);
 // `parsedInfo` is now just { isMobile: true|false }
 ```
 
+Additionally, you can specify custom cache size (default is 100).
+
+```js
+import { withCacheCapacity } from 'bowser-cache';
+
+// Cache will have a maximum of 10 entries
+const bowserCache = withCacheCapacity(10);
+
+const parsedInfo = bowserCache(ua);
+
+// Do something with `parsedInfo`
+```
+
+```js
+import { withTransformerAndCacheCapacity } from 'bowser-cache';
+
+// Cache will have a maximum of 10 entries
+const bowserCache = withTransformerAndCacheCapacity(parsedData => ({ isMobile: parsedData.mobile }), 10);
+
+const parsedInfo = bowserCache(ua);
+
+// `parsedInfo` is now just { isMobile: true|false }
+```
+
 
 [travis-url]: https://travis-ci.org/SimenB/bowser-cache
 [travis-image]: https://img.shields.io/travis/SimenB/bowser-cache.svg

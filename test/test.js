@@ -1,7 +1,7 @@
 import test from 'ava';
 import sinon from 'sinon';
 
-import m, { withTransformer } from '../';
+import m, { withTransformer, withCacheCapacity, withTransformerAndCacheCapacity } from '../';
 
 const ua = 'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36';
 
@@ -40,4 +40,23 @@ test('should cache lookups', t => {
   transformerSpy(`${ua}1`);
 
   t.true(spy.calledTwice);
+});
+
+test('`withCacheCapacity` validation', t => {
+  t.throws(() => withCacheCapacity(), 'Missing `cacheCapacity`, either give a number or use another export.');
+  t.throws(() => withCacheCapacity(() => {}), 'Missing `cacheCapacity`, either give a number or use another export.');
+  t.notThrows(() => withCacheCapacity(42));
+});
+
+test('`withTransformer` validation', t => {
+  t.throws(() => withTransformer(), '`transformer` must be a function, did you use the wrong export?');
+  t.throws(() => withTransformer(42), '`transformer` must be a function, did you use the wrong export?');
+  t.notThrows(() => withTransformer(() => {}));
+});
+
+test('`withTransformerAndCacheCapacity` validation', t => {
+  t.throws(() => withTransformerAndCacheCapacity(), '`transformer` must be a function, did you use the wrong export?');
+  t.throws(() => withTransformerAndCacheCapacity(42), '`transformer` must be a function, did you use the wrong export?');
+  t.throws(() => withTransformerAndCacheCapacity(() => {}), 'Missing `cacheCapacity`, either give a number or use another export.');
+  t.notThrows(() => withTransformerAndCacheCapacity(() => {}, 42));
 });
