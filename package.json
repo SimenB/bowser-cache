@@ -29,7 +29,7 @@
     "eslint": "^3.9.0",
     "eslint-config-simenb-ava": "^6.0.0",
     "eslint-config-simenb-base": "^8.0.0",
-    "eslint-config-simenb-node": "^0.3.2",
+    "eslint-config-simenb-node": "^0.4.0",
     "nyc": "^10.0.0",
     "sinon": "^1.17.6"
   },
