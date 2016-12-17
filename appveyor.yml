@@ -1,0 +1,23 @@
+init:
+  - git config --global core.autocrlf true
+
+environment:
+  matrix:
+  - nodejs_version: 6
+  - nodejs_version: 7
+
+install:
+  - ps: Install-Product node $env:nodejs_version x64
+  - yarn install
+
+test_script:
+  - node --version && yarn --version
+  - yarn test
+
+build: off
+
+matrix:
+  fast_finish: true
+
+cache:
+  - "%LOCALAPPDATA%\\Yarn"
