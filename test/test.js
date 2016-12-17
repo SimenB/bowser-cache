@@ -1,3 +1,5 @@
+/* eslint-disable node/no-unsupported-features */
+
 import test from 'ava';
 import sinon from 'sinon';
 
