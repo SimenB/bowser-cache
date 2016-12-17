@@ -1,11 +1,13 @@
 language: node_js
-node_js: 6
-matrix:
-  fast_finish: true
-script: npm run travis
+node_js:
+  - node
+  - 6
+os:
+  - linux
+  - osx
+osx_image: xcode7.3
+script: yarn run travis
 after_success:
   - cat coverage/lcov.info | node_modules/.bin/coveralls --verbose
 cache:
-  npm: true
-  directories:
-  - node_modules
+  yarn: true
