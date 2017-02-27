@@ -8,6 +8,7 @@
 
 [![Dependency Status][david-image]][david-url]
 [![Dev Dependency Status][david-dev-image]][david-dev-url]
+[![Greenkeeper badge][greenkeeper-image]][greenkeeper-url]
 
 ## Usage
 
@@ -75,5 +76,7 @@ const parsedInfo = bowserCache(ua);
 [david-image]: https://img.shields.io/david/SimenB/bowser-cache.svg
 [david-dev-url]: https://david-dm.org/SimenB/bowser-cache?type=dev
 [david-dev-image]: https://img.shields.io/david/dev/SimenB/bowser-cache.svg
+[greenkeeper-url]: https://greenkeeper.io/
+[greenkeeper-image]: https://badges.greenkeeper.io/SimenB/bowser-cache.svg
 [bowser-url]: https://github.com/ded/bowser
 [lru-cache-url]: https://github.com/isaacs/node-lru-cache
