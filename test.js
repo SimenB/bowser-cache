@@ -47,7 +47,9 @@ test('should cache lookups', () => {
 
 test('`withCacheCapacity` validation', () => {
   expect(() => withCacheCapacity()).toThrow('Missing `cacheCapacity`, either give a number or use another export.');
-  expect(() => withCacheCapacity(() => {})).toThrow('Missing `cacheCapacity`, either give a number or use another export.');
+  expect(() => withCacheCapacity(() => {})).toThrow(
+    'Missing `cacheCapacity`, either give a number or use another export.'
+  );
   expect(() => withCacheCapacity(42)).not.toThrow();
 });
 
@@ -58,8 +60,14 @@ test('`withTransformer` validation', () => {
 });
 
 test('`withTransformerAndCacheCapacity` validation', () => {
-  expect(() => withTransformerAndCacheCapacity()).toThrow('`transformer` must be a function, did you use the wrong export?');
-  expect(() => withTransformerAndCacheCapacity(42)).toThrow('`transformer` must be a function, did you use the wrong export?');
-  expect(() => withTransformerAndCacheCapacity(() => {})).toThrow('Missing `cacheCapacity`, either give a number or use another export.');
+  expect(() => withTransformerAndCacheCapacity()).toThrow(
+    '`transformer` must be a function, did you use the wrong export?'
+  );
+  expect(() => withTransformerAndCacheCapacity(42)).toThrow(
+    '`transformer` must be a function, did you use the wrong export?'
+  );
+  expect(() => withTransformerAndCacheCapacity(() => {})).toThrow(
+    'Missing `cacheCapacity`, either give a number or use another export.'
+  );
   expect(() => withTransformerAndCacheCapacity(() => {}, 42)).not.toThrow();
 });
