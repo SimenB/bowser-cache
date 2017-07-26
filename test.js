@@ -4,7 +4,11 @@
 
 const m = require('./');
 
-const { withTransformer, withCacheCapacity, withTransformerAndCacheCapacity } = m;
+const {
+  withTransformer,
+  withCacheCapacity,
+  withTransformerAndCacheCapacity,
+} = m;
 
 const ua =
   'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36';
@@ -22,7 +26,9 @@ test('parse a valid ua', () => {
 });
 
 test('accept custom transform method', () => {
-  const res = withTransformer(parsedData => ({ isMobile: parsedData.mobile }))(ua);
+  const res = withTransformer(parsedData => ({ isMobile: parsedData.mobile }))(
+    ua
+  );
 
   expect(res).toEqual({ isMobile: true });
 });
@@ -47,7 +53,9 @@ test('should cache lookups', () => {
 });
 
 test('`withCacheCapacity` validation', () => {
-  expect(() => withCacheCapacity()).toThrow('Missing `cacheCapacity`, either give a number or use another export.');
+  expect(() => withCacheCapacity()).toThrow(
+    'Missing `cacheCapacity`, either give a number or use another export.'
+  );
   expect(() => withCacheCapacity(() => {})).toThrow(
     'Missing `cacheCapacity`, either give a number or use another export.'
   );
@@ -55,8 +63,12 @@ test('`withCacheCapacity` validation', () => {
 });
 
 test('`withTransformer` validation', () => {
-  expect(() => withTransformer()).toThrow('`transformer` must be a function, did you use the wrong export?');
-  expect(() => withTransformer(42)).toThrow('`transformer` must be a function, did you use the wrong export?');
+  expect(() => withTransformer()).toThrow(
+    '`transformer` must be a function, did you use the wrong export?'
+  );
+  expect(() => withTransformer(42)).toThrow(
+    '`transformer` must be a function, did you use the wrong export?'
+  );
   expect(() => withTransformer(() => {})).not.toThrow();
 });
 
