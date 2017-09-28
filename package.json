@@ -21,7 +21,7 @@
     "lru-cache": "^4.0.1"
   },
   "devDependencies": {
-    "coveralls": "^2.11.14",
+    "coveralls": "^3.0.0",
     "del-cli": "^1.0.0",
     "eslint": "^4.3.0",
     "eslint-config-simenb-base": "^14.0.0",
