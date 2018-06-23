@@ -23,7 +23,7 @@
   "devDependencies": {
     "coveralls": "^3.0.0",
     "del-cli": "^1.0.0",
-    "eslint": "^4.3.0",
+    "eslint": "^5.0.0",
     "eslint-config-simenb-base": "^14.0.0",
     "eslint-config-simenb-node": "^0.4.1",
     "jest": "^22.1.4",
