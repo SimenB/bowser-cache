@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "bowser": "^1.4.6",
-    "lru-cache": "^4.0.1"
+    "lru-cache": "^5.0.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.0",
