@@ -13,22 +13,21 @@ const {
 const ua =
   'Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36';
 
-test('x is true on unknown ua', () => {
-  expect(m('').x).toEqual(true);
+test('throws on invalid us', () => {
+  expect(() => m('')).toThrow();
 });
 
 test('parse a valid ua', () => {
   const res = m(ua);
 
-  expect(res.x).toBeUndefined();
-  expect(res.chrome).toEqual(true);
-  expect(res.version).toEqual('48.0');
+  expect(res.browser.name).toEqual('Chrome');
+  expect(res.browser.version.startsWith('48.0')).toBe(true);
 });
 
 test('accept custom transform method', () => {
-  const res = withTransformer(parsedData => ({ isMobile: parsedData.mobile }))(
-    ua
-  );
+  const res = withTransformer(parsedData => ({
+    isMobile: parsedData.platform.type === 'mobile',
+  }))(ua);
 
   expect(res).toEqual({ isMobile: true });
 });

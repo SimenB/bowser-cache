@@ -1,6 +1,6 @@
 'use strict';
 
-const { _detect: bowserDetect } = require('bowser');
+const Bowser = require('bowser');
 
 const LRU = require('lru-cache');
 
@@ -20,13 +20,13 @@ const doDetection = (transformer, cacheCapacity) => {
     );
   }
 
-  const cache = LRU(cacheCapacity);
+  const cache = new LRU(cacheCapacity);
 
   return ua => {
     if (!cache.has(ua)) {
-      const res = bowserDetect(ua);
+      const browser = Bowser.getParser(ua).parse();
 
-      cache.set(ua, transformer(res));
+      cache.set(ua, transformer(browser.parsedResult));
     }
 
     return cache.get(ua);
